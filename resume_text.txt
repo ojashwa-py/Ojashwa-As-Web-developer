@@ -1,0 +1,49 @@
+Ojashwa Soni
+ojashwasoni2110@gmail.com  |  +91 8989632029  | Jabalpur
+CAREER OBJECTIVE
+A passionate web development student seeking an internship to enhance my technical skills, gain practical experience, and contribute to impactful projects while growing with the organization.
+WORK EXPERIENCE
+Web Developer Feb 2025 - Feb 2026
+Self-employed, Virtual
+Frontend Development: HTML5, CSS3, JavaScript (ES6+) Design Tools: Canva , Figma (basic) E-Commerce: Shopify, WooCommerce,
+Digital Marketing: Social Media Management (Meta, Instagram), SEO basics Other: Git, GitHub
+E-Commerce Manager Feb 2024 - Dec 2024
+Tech Bazar, Jabalpur
+Managed online stores (Shopify/WooCommerce) Created promotional graphics/videos using Canva. Built 5+ responsive websites using HTML/CSS/JavaScript. Collaborated with clients to design UI mockups in Canva.
+EDUCATION
+Senior Secondary (XII), CBSE
+Science2027
+Joy Senior Secondary School, Jabalpur
+Secondary (X), CBSE 2025
+Joy Senior Secondary School, Jabalpur
+Percentage: 78.00%
+TRAININGS / CERTIFICATIONS
+Web Application Development
+Oct 2025 - Present
+udemy, Virtual
+PORTFOLIO
+GitHub link  ↗
+PROJECTS
+MCA Mock Test  ↗ 
+Dec 2025 - Feb 2026
+ThinkBot is a responsive and concept-driven website developed to present an innovative AI-based academic project in a clear and engaging way. The platform is designed to simplify complex ideas through structured sections, clean UI layout, and intuitive navigation. It highlights the project overview, features, working model, and key benefits in a visually organized format. The website focuses on modern design principles, readability, and mobile responsiveness to ensure a smooth user experience across devices. This project demonstrates my ability to translate technical concepts into a user-friendly digital presentation while maintaining strong UI/UX fundamentals and deployment practices.
+Poster Man  ↗ 
+Aug 2025 - Oct 2025
+Poster Man is a creative landing page designed for a poster and design-focused brand. The website showcases modern layouts, bold typography, and visually engaging sections to highlight products and brand identity. It is built with a clean and responsive structure, ensuring smooth performance across desktop and mobile devices. The project focuses on visual hierarchy, user engagement, and conversion-driven design elements such as call-to-action buttons and structured content flow. This project demonstrates my ability to design brand-oriented websites with an emphasis on UI aesthetics, responsiveness, and modern web design principles.
+We Care  ↗ 
+Apr 2023
+We Care is a responsive and professionally designed beauty services website that showcases premium salon and skincare offerings with a clean and engaging user experience. The site features sections for services, gallery, testimonials, contact information, and easy appointment booking options, helping visitors explore offerings and connect with the salon effortlessly. This project demonstrates my skills in web design, responsive layout, UI/UX structuring, and deployment using Netlify to create a user-friendly digital presence for a small business.
+SKILLS
+•  Web Design •  Video Editing •  Canva
+•  MongoDB •  GitHub •  Git
+•  UI & UX Design •  Graphic Design •  REST API
+•  Automation •  Artificial intelligence •  Vibe Coding
+•  HTML •  CSS •  JavaScript
+•  JSON •  Python •  Node.js
+•  React •  Next.js
+EXTRA CURRICULAR ACTIVITIES
+1.Football Player
+2.Artist
+3.VolleyBall
+ADDITIONAL DETAILS
+Built and deployed live web projects using HTML, CSS, and JavaScript. Practiced MongoDB basics and backend connectivity. Attended online web development workshops and actively learning full stack development through real-world projects.

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Developer Portfolio | Creative & Modern</title>
+    <meta name="description"
+        content="Professional portfolio of a passionate web developer specializing in modern UI/UX and full-stack development.">
+    <meta property="og:image" content="assets/social-logo.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo-icon.png">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-trail-container" id="cursorTrails"></div>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Canvas for particle background -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Mouse Spotlight -->
+    <div class="mouse-spotlight" id="mouseSpotlight"></div>
+
+    <!-- Header Navigation -->
+    <header id="mainHeader">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="assets/new-logo.png" alt="Logo" style="height: 48px;">
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link active magnetic-btn">Home</a></li>
+                    <li><a href="about.html" class="nav-link magnetic-btn">About</a></li>
+                    <li><a href="experience.html" class="nav-link magnetic-btn">Experience</a></li>
+                    <li><a href="services.html" class="nav-link magnetic-btn">Services</a></li>
+                    <li><a href="index.html#projects" class="nav-link magnetic-btn">Work</a></li>
+                    <li><a href="contact.html" class="nav-link magnetic-btn">Contact</a></li>
+                </ul>
+                <div class="nav-btns">
+                    <a href="contact.html" class="btn btn-primary nav-cta magnetic-btn">Hire Me</a>
+                    <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO SECTION ===== -->
+        <section id="hero" class="hero bg-shade-1">
+            <!-- Floating geometric shapes -->
+            <div class="geo-shapes">
+                <div class="geo geo-1"></div>
+                <div class="geo geo-2"></div>
+                <div class="geo geo-3"></div>
+                <div class="geo geo-4"></div>
+                <div class="geo geo-5"></div>
+            </div>
+
+            <div class="container hero-container">
+                <div class="hero-content" data-reveal>
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span>Available for Freelance &amp; Full-Time Roles</span>
+                    </div>
+                    <h1>
+                        <span class="line-wrap"><span class="line-inner">Hi, I'm <span class="gradient-text">Ojashwa
+                                    Soni</span></span></span>
+                        <span class="line-wrap"><span class="line-inner">I build modern websites</span></span>
+                        <span class="line-wrap"><span class="line-inner">&amp; <span class="gradient-text"
+                                    id="scrambleText">digital</span> experiences.</span></span>
+                    </h1>
+                    <p class="hero-desc">I am a passionate Class 12 student interested in <strong>Web Development +
+                            AI</strong>, building real-world projects that solve problems and look stunning.</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-num" data-count="10">0</span><span>+</span>
+                            <span class="stat-label">Projects Shipped</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-num" data-count="5">0</span><span>+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-num" data-count="2">0</span><span>+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary magnetic-btn">View Work <i
+                                class="fas fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-outline magnetic-btn">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image" data-reveal>
+                    <div class="avatar-wrapper">
+                        <div class="avatar-ring ring-1"></div>
+                        <div class="avatar-ring ring-2"></div>
+                        <div class="avatar-ring ring-3"></div>
+                        <img src="assets/me.jpeg" alt="Ojashwa Soni Profile Picture" class="avatar-img">
+                        <div class="avatar-badge ab-1"><i class="fab fa-react"></i></div>
+                        <div class="avatar-badge ab-2"><i class="fab fa-node-js"></i></div>
+                        <div class="avatar-badge ab-3"><i class="fab fa-figma"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>Scroll Down</span>
+            </div>
+        </section>
+
+
+
+        <!-- ===== MARQUEE STRIP ===== -->
+        <div class="marquee-strip">
+            <div class="marquee-track">
+                <span>HTML5</span><span class="dot">·</span>
+                <span>CSS3</span><span class="dot">·</span>
+                <span>JavaScript</span><span class="dot">·</span>
+                <span>MongoDB</span><span class="dot">·</span>
+                <span>React</span><span class="dot">·</span>
+                <span>UI/UX Design</span><span class="dot">·</span>
+                <span>Canva</span><span class="dot">·</span>
+                <span>Shopify</span><span class="dot">·</span>
+                <span>REST API</span><span class="dot">·</span>
+                <span>GitHub</span><span class="dot">·</span>
+                <!-- Duplicate for seamless loop -->
+                <span>HTML5</span><span class="dot">·</span>
+                <span>CSS3</span><span class="dot">·</span>
+                <span>JavaScript</span><span class="dot">·</span>
+                <span>MongoDB</span><span class="dot">·</span>
+                <span>React</span><span class="dot">·</span>
+                <span>UI/UX Design</span><span class="dot">·</span>
+                <span>Canva</span><span class="dot">·</span>
+                <span>Shopify</span><span class="dot">·</span>
+                <span>REST API</span><span class="dot">·</span>
+                <span>GitHub</span><span class="dot">·</span>
+            </div>
+        </div>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section id="about" class="about-section bg-shade-2">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-left" data-reveal>
+                        <span class="section-label">// About Me</span>
+                        <h2 class="section-title">Merging creativity with functional code.</h2>
+                        <p>Hi, I'm <strong>Ojashwa Soni</strong>! I am currently a <strong>Class 12 student</strong>
+                            with a deep passion for technology. My primary interests lie in <strong>Web Development and
+                                Artificial Intelligence</strong>, and I love building real-world projects that challenge
+                            me to learn and grow.</p>
+                        <p>I don't just write code; I design human-centric experiences. From prototyping in Canva to
+                            writing clean code in VS Code, my workflow is built around creating seamless and highly
+                            interactive visual experiences.</p>
+                        <p>When I'm not studying or coding, I experiment with AI tools, edit videos, and design posters.
+                            I'm always looking for my next big learning opportunity!</p>
+                        <div class="about-tags">
+                            <span class="about-tag"><i class="fas fa-graduation-cap"></i> Class 12 Student</span>
+                            <span class="about-tag"><i class="fas fa-code"></i> Web Dev + AI</span>
+                            <span class="about-tag"><i class="fas fa-rocket"></i> Building Projects</span>
+                            <span class="about-tag"><i class="fas fa-map-marker-alt"></i> Jabalpur</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-primary magnetic-btn"
+                            style="margin-top:2rem; display:inline-flex; align-items:center; gap:0.5rem;">
+                            Contact Me <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+                    <div class="about-right" data-reveal>
+                        <div class="tools-grid">
+                            <div class="tool-item" data-tilt><i class="fas fa-magic"></i><span>Web Design</span></div>
+                            <div class="tool-item" data-tilt><i class="fas fa-video"></i><span>Video Editing</span>
+                            </div>
+                            <div class="tool-item" data-tilt><i class="fas fa-palette"></i><span>Canva</span></div>
+                            <div class="tool-item" data-tilt><i class="fas fa-database"></i><span>MongoDB</span></div>
+                            <div class="tool-item" data-tilt><i class="fab fa-github"></i><span>GitHub</span></div>
+                            <div class="tool-item" data-tilt><i class="fab fa-git-alt"></i><span>Git</span></div>
+                            <div class="tool-item" data-tilt><i class="fas fa-object-group"></i><span>UI & UX
+                                    Design</span></div>
+                            <div class="tool-item" data-tilt><i class="fas fa-vector-square"></i><span>Graphic
+                                    Design</span></div>
+                            <div class="tool-item" data-tilt><i class="fas fa-robot"></i><span>Automation</span></div>
+                            <div class="tool-item" data-tilt><i class="fas fa-project-diagram"></i><span>n8n</span>
+                            </div>
+                            <div class="tool-item" data-tilt><i class="fas fa-code"></i><span>Vibe Coding</span></div>
+                            <div class="tool-item" data-tilt><i class="fab fa-html5"></i><span>HTML</span></div>
+                            <div class="tool-item" data-tilt><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+                            <div class="tool-item" data-tilt><i class="fab fa-js"></i><span>JavaScript</span></div>
+                            <div class="tool-item" data-tilt><i class="fab fa-python"></i><span>Python</span></div>
+                            <div class="tool-item" data-tilt><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                            <div class="tool-item" data-tilt><i class="fab fa-react"></i><span>React</span></div>
+                            <div class="tool-item" data-tilt><i class="fas fa-bolt"></i><span>Next.js</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS SECTION ===== -->
+        <section id="projects" class="bg-shade-3">
+            <div class="container">
+                <span class="section-label" style="display:block; text-align:center; margin-bottom:0.5rem;">// My
+                    Work</span>
+                <h2 data-reveal>Featured Projects</h2>
+
+                <!-- Portfolio Filter Tabs -->
+                <div class="portfolio-filters" data-reveal>
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="websites">Websites</button>
+                    <button class="filter-btn" data-filter="canva">Canva Designs</button>
+                    <button class="filter-btn" data-filter="logos">Logos</button>
+                    <button class="filter-btn" data-filter="posters">Posters</button>
+                    <button class="filter-btn" data-filter="edits">Edits</button>
+                </div>
+
+                <div class="projects-grid" id="portfolioGrid">
+                    <!-- Project 1: Website -->
+                    <div class="project-card filter-item websites" data-reveal>
+                        <div class="project-img">
+                            <img src="assets/project1.png" alt="MCA Mock Test Project">
+                            <div class="project-overlay">
+                                <a href="project1.html" class="overlay-btn">View Demo <i
+                                        class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">React</span>
+                            </div>
+                            <h3>AI Mock Test Platform</h3>
+                            <p>An interactive, highly responsive platform driven by modern frontend tools to simulate
+                                rigorous testing environments.</p>
+                            <a href="project1.html" class="project-link">View Project <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Website -->
+                    <div class="project-card filter-item websites" data-reveal>
+                        <div class="project-img">
+                            <img src="assets/project3.png" alt="We Care Services">
+                            <div class="project-overlay">
+                                <a href="project3.html" class="overlay-btn">View Demo <i
+                                        class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">HTML/CSS</span>
+                                <span class="tag">Booking</span>
+                            </div>
+                            <h3>We Care Services</h3>
+                            <p>Premium booking platform for salon services with immersive UI/UX experiences and
+                                fast-loading web pages.</p>
+                            <a href="project3.html" class="project-link">View Project <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Canva Design -->
+                    <div class="project-card filter-item canva" data-reveal>
+                        <div class="project-img">
+                            <div class="placeholder-img"
+                                style="background: linear-gradient(135deg, #FF6B6B, #FF8E53); height: 230px; display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">
+                                <i class="fas fa-paint-brush"></i></div>
+                            <div class="project-overlay">
+                                <a href="#" class="overlay-btn">View Image <i class="fas fa-image"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">Canva</span>
+                                <span class="tag">Design</span>
+                            </div>
+                            <h3>Creative Social Media Kit</h3>
+                            <p>A set of high-converting social media templates explicitly designed for digital marketing
+                                clients.</p>
+                            <a href="#" class="project-link">View Design <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Logo -->
+                    <div class="project-card filter-item logos" data-reveal>
+                        <div class="project-img">
+                            <div class="placeholder-img"
+                                style="background: linear-gradient(135deg, #4E65FF, #92EFFD); height: 230px; display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">
+                                <i class="fas fa-vector-square"></i></div>
+                            <div class="project-overlay">
+                                <a href="#" class="overlay-btn">View Logo <i class="fas fa-image"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">Branding</span>
+                                <span class="tag">Vector</span>
+                            </div>
+                            <h3>Tech Startup Branding</h3>
+                            <p>A minimalist logo created for an up-and-coming tech startup, ensuring clarity across
+                                various media.</p>
+                            <a href="#" class="project-link">View Design <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Poster -->
+                    <div class="project-card filter-item posters" data-reveal>
+                        <div class="project-img">
+                            <div class="placeholder-img"
+                                style="background: linear-gradient(135deg, #8A2387, #E94057); height: 230px; display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">
+                                <i class="fas fa-image"></i></div>
+                            <div class="project-overlay">
+                                <a href="project2.html" class="overlay-btn">View Poster <i class="fas fa-image"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">Typography</span>
+                                <span class="tag">Visuals</span>
+                            </div>
+                            <h3>Poster Man Collection</h3>
+                            <p>Striking, bold typography-driven posters focused on creating visual impact for offline
+                                and online events.</p>
+                            <a href="project2.html" class="project-link">View Design <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Edits -->
+                    <div class="project-card filter-item edits" data-reveal>
+                        <div class="project-img">
+                            <div class="placeholder-img"
+                                style="background: linear-gradient(135deg, #11998e, #38ef7d); height: 230px; display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">
+                                <i class="fas fa-video"></i></div>
+                            <div class="project-overlay">
+                                <a href="#" class="overlay-btn">Watch Video <i class="fas fa-play"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">Video Editing</span>
+                                <span class="tag">Premiere</span>
+                            </div>
+                            <h3>Cinematic Tech Reel</h3>
+                            <p>Fast-paced, engaging short-form video content edited for Instagram Reels and YouTube
+                                Shorts.</p>
+                            <a href="#" class="project-link">Watch Video <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CERTIFICATES SECTION ===== -->
+        <section id="certificates" class="bg-shade-2">
+            <div class="container">
+                <span class="section-label" style="display:block; text-align:center; margin-bottom:0.5rem;">//
+                    Achievements</span>
+                <h2 data-reveal>My Certificates</h2>
+                <div class="certificates-grid">
+                    <div class="cert-card glass-panel" data-reveal>
+                        <div class="cert-icon-wrapper"><i class="fas fa-award"></i></div>
+                        <div class="cert-info">
+                            <h3>Web Development Certificate</h3>
+                            <p>Placeholder for upcoming certificate</p>
+                        </div>
+                    </div>
+                    <div class="cert-card glass-panel" data-reveal>
+                        <div class="cert-icon-wrapper"><i class="fas fa-trophy"></i></div>
+                        <div class="cert-info">
+                            <h3>AI Fundamentals</h3>
+                            <p>Placeholder for upcoming certificate</p>
+                        </div>
+                    </div>
+                    <div class="cert-card glass-panel" data-reveal>
+                        <div class="cert-icon-wrapper"><i class="fas fa-certificate"></i></div>
+                        <div class="cert-info">
+                            <h3>Design Masterclass</h3>
+                            <p>Placeholder for upcoming certificate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS SECTION ===== -->
+        <section id="skills" class="bg-shade-4">
+            <div class="container">
+                <span class="section-label" style="display:block; text-align:center; margin-bottom:0.5rem;">// What I
+                    Do</span>
+                <h2 data-reveal>My Skills</h2>
+                <div class="skills-category-grid">
+                    <!-- Web Dev -->
+                    <div class="skills-category-card glass-panel" data-reveal>
+                        <div class="cat-header">
+                            <div class="cat-icon"><i class="fas fa-laptop-code"></i></div>
+                            <h3>Web Development</h3>
+                        </div>
+                        <div class="cat-skills">
+                            <span class="cat-tag"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="cat-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="cat-tag"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="cat-tag"><i class="fab fa-react"></i> React</span>
+                            <span class="cat-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                        </div>
+                    </div>
+                    <!-- Tools -->
+                    <div class="skills-category-card glass-panel" data-reveal>
+                        <div class="cat-header">
+                            <div class="cat-icon"><i class="fas fa-tools"></i></div>
+                            <h3>Tools & Platforms</h3>
+                        </div>
+                        <div class="cat-skills">
+                            <span class="cat-tag"><i class="fab fa-github"></i> GitHub</span>
+                            <span class="cat-tag"><i class="fas fa-code"></i> VS Code</span>
+                            <span class="cat-tag"><i class="fab fa-git-alt"></i> Git</span>
+                            <span class="cat-tag"><i class="fas fa-project-diagram"></i> n8n</span>
+                        </div>
+                    </div>
+                    <!-- Design -->
+                    <div class="skills-category-card glass-panel" data-reveal>
+                        <div class="cat-header">
+                            <div class="cat-icon"><i class="fas fa-palette"></i></div>
+                            <h3>Design & Media</h3>
+                        </div>
+                        <div class="cat-skills">
+                            <span class="cat-tag"><i class="fas fa-pen-nib"></i> Canva Designing</span>
+                            <span class="cat-tag"><i class="fas fa-video"></i> Basic Video Editing</span>
+                            <span class="cat-tag"><i class="fas fa-images"></i> Poster Design</span>
+                            <span class="cat-tag"><i class="fas fa-vector-square"></i> Logo Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TIMELINE / EXPERIENCE TEASER ===== -->
+        <section id="journey" class="bg-shade-1">
+            <div class="container">
+                <span class="section-label" style="display:block; text-align:center; margin-bottom:0.5rem;">// My
+                    Journey</span>
+                <h2 data-reveal>Career Milestones</h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-reveal>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Feb 2025 – Feb 2026</span>
+                            <h3>Web Developer</h3>
+                            <span class="timeline-company">Self-employed · Virtual</span>
+                            <p>Developed responsive websites using HTML5, CSS3, JavaScript (ES6+), integrated
+                                Shopify/WooCommerce, and managed SEO and social media.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-reveal>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Feb 2024 – Dec 2024</span>
+                            <h3>E-Commerce Manager</h3>
+                            <span class="timeline-company">Tech Bazar · Jabalpur</span>
+                            <p>Managed online stores, built 5+ responsive websites, and collaborated with clients to
+                                design UI mockups in Canva.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-reveal>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Oct 2025 - Present</span>
+                            <h3>Web Application Development Training</h3>
+                            <span class="timeline-company">Udemy · Virtual</span>
+                            <p>Actively learning full stack development through real-world projects, workshops, and
+                                comprehensive online training.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align:center; margin-top: 3rem;">
+                    <a href="experience.html" class="btn btn-outline magnetic-btn">View Full Experience <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROCESS SECTION ===== -->
+        <section id="process" class="bg-shade-2">
+            <div class="container">
+                <span class="section-label" style="display:block; text-align:center; margin-bottom:0.5rem;">// How I
+                    Work</span>
+                <h2 data-reveal>My Process</h2>
+                <div class="process-grid">
+                    <div class="process-step" data-reveal>
+                        <div class="process-num">01</div>
+                        <h3>Discover</h3>
+                        <p>I deep-dive into your goals, users, and competitors to build a solid foundation.</p>
+                    </div>
+                    <div class="process-connector"></div>
+                    <div class="process-step" data-reveal>
+                        <div class="process-num">02</div>
+                        <h3>Design</h3>
+                        <p>Wireframes, prototypes, and design systems crafted in Figma for sign-off.</p>
+                    </div>
+                    <div class="process-connector"></div>
+                    <div class="process-step" data-reveal>
+                        <div class="process-num">03</div>
+                        <h3>Develop</h3>
+                        <p>Clean, tested, and documented code with regular demos and check-ins.</p>
+                    </div>
+                    <div class="process-connector"></div>
+                    <div class="process-step" data-reveal>
+                        <div class="process-num">04</div>
+                        <h3>Deploy</h3>
+                        <p>Launch on your infrastructure with CI/CD, monitoring, and post-launch support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS SECTION ===== -->
+        <section id="testimonials" class="bg-shade-3">
+            <div class="container">
+                <span class="section-label" style="display:block; text-align:center; margin-bottom:0.5rem;">//
+                    Testimonials</span>
+                <h2 data-reveal>Client Love</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card glass-panel" data-reveal>
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"Working with Ojashwa was a game-changer. The responsive website he built for our local business is not only beautiful but incredibly performant."</p>
+                        <div class="stars">★★★★★</div>
+                        <div class="user-info">
+                            <div class="user-img" style="display:flex; align-items:center; justify-content:center; font-size:2rem; color: #888; background:#e1e5ea; border-radius:50%; width: 50px; height: 50px;"><i class="fas fa-user"></i></div>
+                            <div>
+                                <strong>Rohan Sharma</strong>
+                                <small style="display: block; color: var(--text-dim);">Founder, TechVedas</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-panel" data-reveal>
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"The attention to detail in the modern design and the social media posts he created for us completely transformed our brand presence online."</p>
+                        <div class="stars">★★★★★</div>
+                        <div class="user-info">
+                            <div class="user-img" style="display:flex; align-items:center; justify-content:center; font-size:2rem; color: #888; background:#e1e5ea; border-radius:50%; width: 50px; height: 50px;"><i class="fas fa-user"></i></div>
+                            <div>
+                                <strong>Priya Patel</strong>
+                                <small style="display: block; color: var(--text-dim);">Marketing Head</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-panel" data-reveal>
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"Outstanding work on our landing page! The clean structure and smooth navigation made a huge impact on our user engagement. Highly recommended."</p>
+                        <div class="stars">★★★★★</div>
+                        <div class="user-info">
+                            <div class="user-img" style="display:flex; align-items:center; justify-content:center; font-size:2rem; color: #888; background:#e1e5ea; border-radius:50%; width: 50px; height: 50px;"><i class="fas fa-user"></i></div>
+                            <div>
+                                <strong>Ananya Gupta</strong>
+                                <small style="display: block; color: var(--text-dim);">Director, EduPlus</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOBBIES / EXTRA CURRICULAR SECTION ===== -->
+        <section id="hobbies" class="bg-shade-1">
+            <div class="container">
+                <span class="section-label" style="display:block; text-align:center; margin-bottom:0.5rem;">// Life
+                    Outside Code</span>
+                <h2 data-reveal>Beyond the <span class="gradient-text">Keyboard</span></h2>
+                <div class="hobbies-grid">
+                    <!-- Football -->
+                    <div class="hobby-card" data-reveal data-tilt>
+                        <div class="hobby-badge">Active</div>
+                        <div class="hobby-icon-wrapper">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3>Football</h3>
+                        <p>Fueling my competitive spirit and teamwork on the field. It's where I learn that every goal
+                            requires strategy and coordination.</p>
+                    </div>
+
+                    <!-- Artist -->
+                    <div class="hobby-card" data-reveal data-tilt>
+                        <div class="hobby-badge">Creative</div>
+                        <div class="hobby-icon-wrapper">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Artist</h3>
+                        <p>Expressing thoughts through visuals. Whether it's digital art or sketching, creativity is the
+                            heart of everything I build.</p>
+                    </div>
+
+                    <!-- Volleyball -->
+                    <div class="hobby-card" data-reveal data-tilt>
+                        <div class="hobby-badge">Energy</div>
+                        <div class="hobby-icon-wrapper">
+                            <i class="fas fa-volleyball-ball"></i>
+                        </div>
+                        <h3>Volleyball</h3>
+                        <p>High energy, quick reflexes, and constant communication. Spiking problems and serving
+                            solutions, both on court and in code.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section id="contact" class="bg-shade-4">
+            <div class="container">
+                <span class="section-label" style="display:block; text-align:center; margin-bottom:0.5rem;">// Get in
+                    Touch</span>
+                <h2 data-reveal>Let's Build Together</h2>
+                <div class="contact-content">
+                    <div class="contact-info" data-reveal>
+                        <h3>Have a project in mind?</h3>
+                        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of
+                            your vision.</p>
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <span>Email</span>
+                                    <strong>ojashwasoni2110@gmail.com</strong>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <span>Phone</span>
+                                    <strong>+91 8989632029</strong>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <span>Location</span>
+                                    <strong>Jabalpur, India</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://github.com/ojashwa-py" target="_blank" class="social-icon magnetic-btn"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/ojashwa-soni-b7851b399/" target="_blank"
+                                class="social-icon magnetic-btn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/ojashwa.py" target="_blank"
+                                class="social-icon magnetic-btn"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form" data-reveal id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget Range</label>
+                            <select id="budget">
+                                <option value="">Select a range...</option>
+                                <option>$1k – $5k</option>
+                                <option>$5k – $15k</option>
+                                <option>$15k – $50k</option>
+                                <option>$50k+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" placeholder="Hi, I'd like to talk about..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary magnetic-btn" id="submitBtn"
+                            style="width: 100%;">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/new-logo.png" alt="Ojashwa Soni" class="footer-logo">
+                    <p>Crafting digital experiences that blend high-end design with seamless functionality. Based in
+                        Jabalpur, working globally.</p>
+                    <div class="social-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <a href="https://github.com/ojashwa-py" target="_blank" class="social-icon magnetic-btn"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ojashwa-soni-b7851b399/" target="_blank"
+                            class="social-icon magnetic-btn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/ojashwa.py" target="_blank"
+                            class="social-icon magnetic-btn"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html" class="magnetic-btn">Home</a>
+                        <a href="about.html" class="magnetic-btn">About</a>
+                        <a href="experience.html" class="magnetic-btn">Experience</a>
+                        <a href="services.html" class="magnetic-btn">Services</a>
+                        <a href="index.html#projects" class="magnetic-btn">Portfolio</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Specialties</h4>
+                    <div class="footer-links">
+                        <a href="services.html" class="magnetic-btn">Web Development</a>
+                        <a href="services.html" class="magnetic-btn">UI/UX Design</a>
+                        <a href="services.html" class="magnetic-btn">E-Commerce</a>
+                        <a href="services.html" class="magnetic-btn">SEO Basics</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-info">
+                        <a href="mailto:ojashwasoni2110@gmail.com" class="contact-item">
+                            <i><i class="fas fa-envelope"></i></i>
+                            ojashwasoni2110@gmail.com
+                        </a>
+                        <a href="tel:+918989632029" class="contact-item">
+                            <i><i class="fas fa-phone"></i></i>
+                            +91 8989632029
+                        </a>
+                        <div class="contact-item">
+                            <i><i class="fas fa-map-marker-alt"></i></i>
+                            Jabalpur, India
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ojashwa Soni. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
