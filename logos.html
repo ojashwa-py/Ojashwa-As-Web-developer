@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo & Graphics Collection | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/logo-icon.png">
+    <style>
+        .gallery-header {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .gallery-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header p {
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Dense Masonry-like Grid */
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 10px;
+            gap: 20px;
+        }
+
+        .masonry-item {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s var(--ease);
+            position: relative;
+            grid-row-end: span 20; /* Default span */
+        }
+
+        /* Varying spans for masonry effect */
+        .masonry-item.tall { grid-row-end: span 35; }
+        .masonry-item.wide { grid-row-end: span 25; }
+        .masonry-item.square { grid-row-end: span 30; }
+
+        .masonry-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--text);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .masonry-item img, .masonry-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease);
+        }
+
+        .masonry-item:hover img, .masonry-item:hover video {
+            transform: scale(1.05);
+        }
+
+        .item-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            backdrop-filter: blur(2px);
+        }
+
+        .masonry-item:hover .item-overlay {
+            opacity: 1;
+        }
+
+        .zoom-icon {
+            color: #fff;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .masonry-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-trail-container" id="cursorTrails"></div>
+
+    <div class="noise-overlay"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <canvas id="particleCanvas"></canvas>
+    <div class="mouse-spotlight" id="mouseSpotlight"></div>
+
+    <header id="mainHeader">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="assets/new-logo.png" alt="Logo" style="height: 48px;">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="index.html#projects">Work</a></li>
+                </ul>
+                <div class="nav-btns">
+                    <a href="index.html#contact" class="btn btn-primary nav-cta">Hire Me</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="gallery-header">
+            <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Work</a>
+            <h1 data-reveal><span class="gradient-text">Logo & Graphics Collection</span></h1>
+            <p data-reveal>Experimental and professional brand identities, social media posters, and creative designs crafted with precision and visual storytelling.</p>
+        </div>
+
+        <div class="masonry-grid" id="masonryGrid">
+            <!-- Row spans are randomized in script for masonry feel -->
+            <div class="masonry-item wide" data-reveal><img src="assets/Logo Works/trendify.png" alt="Trendify Logo"></div>
+            <div class="masonry-item tall" data-reveal><img src="assets/Logo Works/velocity motors.png" alt="Velocity Motors"></div>
+            <div class="masonry-item square" data-reveal><img src="assets/Logo Works/Café Belle Logo Design.png" alt="Café Belle"></div>
+            <div class="masonry-item tall" data-reveal><img src="assets/Logo Works/Class 10th Maths NNCE.png" alt="Education Poster"></div>
+            <div class="masonry-item wide" data-reveal><img src="assets/Logo Works/Black and Gold Luxury Christmas Party Virtual Invitation.png" alt="Luxury Party Invitation"></div>
+            <div class="masonry-item square" data-reveal><img src="assets/Logo Works/Bakchodi.Com.png" alt="Bakchodi.Com Logo"></div>
+            <div class="masonry-item tall" data-reveal><img src="assets/Logo Works/Yellow and Purple Bold Online Course Poster.png" alt="Online Course Poster"></div>
+            <div class="masonry-item wide" data-reveal><img src="assets/Logo Works/Black and Yellow Illustrative Car Rent Logo.png" alt="Car Rent Logo"></div>
+            <div class="masonry-item square" data-reveal><img src="assets/Logo Works/Dark Green and Grey Modern Bold Grunge Car Repair Brand Logo.png" alt="Car Repair Logo"></div>
+            <div class="masonry-item tall" data-reveal><img src="assets/Logo Works/Green and White Minimalist Risk Management Services Instagram Post.png" alt="Risk Management Post"></div>
+            <div class="masonry-item wide" data-reveal><img src="assets/Logo Works/अरोग्या आयुर्वेदम.png" alt="Ayurveda Logo"></div>
+            <div class="masonry-item square" data-reveal><img src="assets/Logo Works/Green and White Minimalist Book Store Logo.png" alt="Book Store Logo"></div>
+            <div class="masonry-item tall" data-reveal><img src="assets/Logo Works/PosterMan.png" alt="PosterMan Logo"></div>
+            <div class="masonry-item wide" data-reveal><img src="assets/Logo Works/Purple Yellow Modern Marketing Class YouTube Thumbnail.png" alt="YouTube Thumbnail"></div>
+            <div class="masonry-item square" data-reveal><img src="assets/Logo Works/We care.png" alt="We Care Logo"></div>
+            <div class="masonry-item tall" data-reveal><img src="assets/Logo Works/please join us to celebrate the 30th birthday of.png" alt="Birthday Invite"></div>
+            <div class="masonry-item wide" data-reveal>
+                <video src="assets/Logo Works/Pink Floral Watercolor Wedding Invitation Mobile Video.mp4" autoplay loop muted playsinline></video>
+            </div>
+            <div class="masonry-item square" data-reveal><img src="assets/Logo Works/1.png" alt="Logo 1"></div>
+            <div class="masonry-item square" data-reveal><img src="assets/Logo Works/2.png" alt="Logo 2"></div>
+            <div class="masonry-item square" data-reveal><img src="assets/Logo Works/G.png" alt="Logo G"></div>
+            <div class="masonry-item square" data-reveal><img src="assets/Logo Works/p.png" alt="Logo P"></div>
+            <div class="masonry-item wide" data-reveal><img src="assets/Logo Works/Untitled design.png" alt="Untitled Logo"></div>
+        </div>
+    </main>
+
+    <footer style="margin-top: 5rem;">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ojashwa Soni. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="index.html">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
