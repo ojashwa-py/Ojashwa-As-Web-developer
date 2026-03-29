@@ -17,32 +17,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let ringX = -100, ringY = -100;
     let raf;
 
+    // Optimized Mouse movement throttled for performance
+    const isMobile = window.innerWidth < 768;
+    
     window.addEventListener('mousemove', e => {
         mouseX = e.clientX;
         mouseY = e.clientY;
 
-        // Spotlight
-        const spot = document.getElementById('mouseSpotlight');
-        if (spot) {
-            spot.style.left = mouseX + 'px';
-            spot.style.top = mouseY + 'px';
+        // Spotlight (only on desktop for better perf)
+        if (!isMobile) {
+            const spot = document.getElementById('mouseSpotlight');
+            if (spot) {
+                spot.style.left = mouseX + 'px';
+                spot.style.top = mouseY + 'px';
+            }
+            // Trail particles logic
+            spawnTrail(mouseX, mouseY);
         }
-
-        // Trail particles
-        spawnTrail(mouseX, mouseY);
     });
 
     function animateCursor() {
-        if (dot) {
+        if (!isMobile && dot) {
             dot.style.left = mouseX + 'px';
             dot.style.top = mouseY + 'px';
         }
 
         // Ring follows with lerp (smooth lag)
-        ringX += (mouseX - ringX) * 0.12;
-        ringY += (mouseY - ringY) * 0.12;
-
-        if (ring) {
+        if (!isMobile && ring) {
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
             ring.style.left = ringX + 'px';
             ring.style.top = ringY + 'px';
         }
@@ -50,20 +53,28 @@ document.addEventListener('DOMContentLoaded', () => {
         raf = requestAnimationFrame(animateCursor);
     }
 
-    animateCursor();
+    if (!isMobile) animateCursor();
+    else {
+        // Hide custom cursor on mobile to avoid lag
+        if (dot) dot.style.display = 'none';
+        if (ring) ring.style.display = 'none';
+        document.body.style.cursor = 'default';
+    }
 
     // Hover state on interactive elements
     const hoverTargets = document.querySelectorAll(
         'a, button, .project-card, .skill-card, .tool-item, .social-icon, .testimonial-card, .process-step, .timeline-card, input, textarea, select'
     );
 
-    hoverTargets.forEach(el => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-    });
+    if (!isMobile) {
+        hoverTargets.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+        });
+    }
 
     document.addEventListener('mousedown', (e) => {
-        document.body.classList.add('cursor-click');
+        if (!isMobile) document.body.classList.add('cursor-click');
         const ripple = document.createElement('div');
         ripple.classList.add('click-ripple');
         ripple.style.left = e.clientX + 'px';
@@ -80,13 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let trailTimer = 0;
 
     function spawnTrail(x, y) {
+        if (isMobile) return; 
         const now = Date.now();
-        if (now - trailTimer < 40) return;   // spawn every ~40ms
+        if (now - trailTimer < 60) return;   // spawn every ~60ms (reduced frequency)
         trailTimer = now;
 
         if (!trailContainer) return;
 
-        const size = Math.random() * 8 + 4;
+        const size = Math.random() * 6 + 2;
         const trail = document.createElement('div');
         trail.classList.add('cursor-trail');
         trail.style.cssText = `
@@ -96,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             top: ${y}px;
         `;
         trailContainer.appendChild(trail);
-        setTimeout(() => trail.remove(), 600);
+        setTimeout(() => trail.remove(), 500);
     }
 
     /* ================================================
@@ -162,30 +174,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Create particles
-        for (let i = 0; i < 80; i++) particles.push(new Particle());
+        // Optimized connections: reduced count on mobile
+        const pCount = isMobile ? 30 : 70;
+        for (let i = 0; i < pCount; i++) particles.push(new Particle());
 
-        // Connect nearby particles with lines
         function drawConnections() {
+            ctx.beginPath();
+            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+            
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    // Skip Math.sqrt for performance, check squared distance
+                    const distSq = dx * dx + dy * dy;
 
-                    if (dist < 100) {
-                        ctx.save();
-                        ctx.globalAlpha = (1 - dist / 100) * 0.12;
-                        ctx.strokeStyle = '#ffffff';
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
+                    if (distSq < 10000) { // 100 * 100
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                        ctx.restore();
                     }
                 }
             }
+            ctx.stroke();
         }
 
         function loopCanvas() {
@@ -341,10 +352,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggle && navLinks) {
         toggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            toggle.classList.toggle('active'); // Also toggle active on button
             const icon = toggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            
+            if (navLinks.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+                document.body.style.overflow = 'hidden';
+                
+                // Staggered link animation
+                const links = navLinks.querySelectorAll('li');
+                links.forEach((child, index) => {
+                    child.style.transitionDelay = `${index * 0.1}s`;
+                    child.classList.add('reveal');
+                });
+            } else {
+                icon.className = 'fas fa-bars';
+                document.body.style.overflow = '';
+                
+                const links = navLinks.querySelectorAll('li');
+                links.forEach(child => {
+                    child.style.transitionDelay = '0s';
+                    child.classList.remove('reveal');
+                });
+            }
         });
     }
 
